@@ -32,15 +32,15 @@ botonCheck.addEventListener("click",() => {
     checkMS(matrix);
 })
 botonClear.addEventListener("click", () => {
-    caja1.value = " ";
-    caja2.value = " ";
-    caja3.value = " ";
-    caja4.value = " ";
-    caja5.value = " ";
-    caja6.value = " ";
-    caja7.value = " ";
-    caja8.value = " ";
-    caja9.value = " ";
+    caja1.value = "";
+    caja2.value = "";
+    caja3.value = "";
+    caja4.value = "";
+    caja5.value = "";
+    caja6.value = "";
+    caja7.value = "";
+    caja8.value = "";
+    caja9.value = "";
 })
 
 function checkMS(matrix){
@@ -54,7 +54,7 @@ function checkMS(matrix){
     const diag2 = parseInt(matrix[0][2])+parseInt(matrix[1][1])+parseInt(matrix[2][0]);
     
     if(col1==col2 && col1==col3 && col1==row1 && col1==row2 && col1==row3 && col1==diag1 && col1==diag2){
-        mostrarAlerta("Magic square!!!, all the cols rows and diags add up to " + col1, true)
+        mostrarAlerta("Magic square! all the columns rows and diagonals add up to <span class='font-bold underline'>" + col1 +"</span>", true)
     }
     else{
         mostrarAlerta("not magic square!! :(", false);
@@ -77,8 +77,8 @@ function mostrarAlerta(mensaje, tipo){
             <span class="block sm:inline">${mensaje}</span>
         `;
     
-        const body = document.querySelector('body');
-        body.appendChild(alerta);
+        const divMensaje = document.querySelector('.mensaje');
+        divMensaje.appendChild(alerta);
     
         setTimeout(() => {
             alerta.remove();
